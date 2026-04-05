@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competitive Landscape Analysis — Lino Press NYC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS RESET & VARIABLES
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0D0D1A;
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
+  --text: #F5F0E8;
+  --text-dim: rgba(245,240,232,0.6);
+  --gold: #C8A84E;
+  --gold-dim: rgba(200,168,78,0.25);
+  --red: #C62828;
+  --blue: #2C5F8A;
+  --border: rgba(245,240,232,0.08);
+  --glass: rgba(255,255,255,0.03);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+
+section { padding: 80px 0; }
+section + section { border-top: 1px solid var(--border); }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: 120px 0 100px;
+  overflow: hidden;
+  background: linear-gradient(170deg, #0D0D1A 0%, #111128 40%, #0D0D1A 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,168,78,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -150px; left: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(198,40,40,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(200,168,78,0.3);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-badge svg { width: 14px; height: 14px; fill: var(--gold); }
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+.hero-meta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+.hero-meta-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--text-dim);
+  max-width: 680px;
+  margin-bottom: 48px;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   EXECUTIVE SUMMARY
+   ============================================================ */
+.exec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.exec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  backdrop-filter: blur(12px);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.exec-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(200,168,78,0.2);
+  transform: translateY(-4px);
+}
+
+.exec-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+.exec-card-icon.gold { background: var(--gold-dim); }
+.exec-card-icon.red { background: rgba(198,40,40,0.15); }
+.exec-card-icon.blue { background: rgba(44,95,138,0.2); }
+
+.exec-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.exec-card p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.exec-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   CATEGORY TABS
+   ============================================================ */
+.cat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.cat-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.cat-btn:hover, .cat-btn.active {
+  background: var(--gold-dim);
+  border-color: rgba(200,168,78,0.35);
+  color: var(--gold);
+}
+
+/* ============================================================
+   COMPETITOR GRID
+   ============================================================ */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.comp-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(.22,1,.36,1);
+  overflow: hidden;
+}
+.comp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.comp-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(200,168,78,0.18);
+  transform: translateY(-4px);
+}
+.comp-card:hover::before { opacity: 1; }
+
+.comp-rank {
+  position: absolute;
+  top: 16px; right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.05);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.comp-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-right: 60px;
+}
+
+.comp-location {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.comp-score-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.comp-score-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  min-width: 80px;
+}
+.comp-score-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.comp-score-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(.22,1,.36,1);
+}
+.comp-score-fill.s5 { width: 50%; background: var(--red); }
+.comp-score-fill.s6 { width: 60%; background: linear-gradient(90deg, var(--red), var(--gold)); }
+.comp-score-fill.s7 { width: 70%; background: var(--gold); }
+.comp-score-fill.s8 { width: 80%; background: linear-gradient(90deg, var(--gold), #58B09C); }
+.comp-score-fill.s9 { width: 90%; background: linear-gradient(90deg, #58B09C, var(--blue)); }
+.comp-score-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: right;
+}
+
+.comp-price {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+.comp-price.budget { background: rgba(44,95,138,0.2); color: #6BA3D6; }
+.comp-price.mid { background: var(--gold-dim); color: var(--gold); }
+.comp-price.premium { background: rgba(198,40,40,0.15); color: #E57373; }
+.comp-price.luxury { background: rgba(156,39,176,0.15); color: #CE93D8; }
+.comp-price.wholesale { background: rgba(255,255,255,0.08); color: var(--text-dim); }
+
+.comp-feature {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.comp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.comp-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ============================================================
+   OPPORTUNITIES
+   ============================================================ */
+.opp-list { display: flex; flex-direction: column; gap: 24px; }
+
+.opp-card {
+  display: grid;
+  grid-template-columns: 6px 1fr;
+  gap: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 32px 32px 0;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s;
+}
+.opp-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(200,168,78,0.18);
+  transform: translateX(6px);
+}
+
+.opp-accent {
+  width: 6px;
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--red) 100%);
+}
+
+.opp-content {}
+.opp-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.opp-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.opp-desc {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.opp-action {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--gold);
+  background: var(--gold-dim);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  line-height: 1.5;
+}
+.opp-action svg { flex-shrink: 0; margin-top: 3px; width: 14px; height: 14px; fill: var(--gold); }
+
+/* ============================================================
+   INSIGHTS
+   ============================================================ */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.insight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.35s;
+  display: flex;
+  gap: 18px;
+}
+.insight-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(44,95,138,0.25);
+  transform: translateY(-3px);
+}
+
+.insight-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--blue);
+  flex-shrink: 0;
+  width: 36px;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.insight-text {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+.insight-text strong { color: var(--text); font-weight: 600; }
+
+/* ============================================================
+   ADVANTAGES
+   ============================================================ */
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.adv-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px 28px 28px;
+  transition: all 0.35s;
+  overflow: hidden;
+}
+.adv-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--red) 50%, var(--blue) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.adv-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+}
+.adv-card:hover::after { opacity: 1; }
+
+.adv-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+}
+
+.adv-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   DESIGN TRENDS
+   ============================================================ */
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.trend-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.35s;
+}
+.trend-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(200,168,78,0.18);
+  transform: translateY(-3px);
+}
+.trend-icon {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+.trend-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.trend-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+footer p {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+footer .brand-mark {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  section { padding: 56px 0; }
+  .hero { padding: 80px 0 64px; }
+  .comp-grid { grid-template-columns: 1fr; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .adv-grid { grid-template-columns: 1fr; }
+  .trends-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 20px; }
+  .opp-card { grid-template-columns: 4px 1fr; gap: 20px; padding: 24px 24px 24px 0; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  body { background: #fff; color: #111; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero { background: #fff; padding: 40px 0; }
+  .hero h1 { -webkit-text-fill-color: #111; color: #111; background: none; }
+  .hero-badge { border-color: #C8A84E; }
+  section { padding: 30px 0; break-inside: avoid; }
+  .comp-card, .exec-card, .insight-card, .adv-card, .opp-card, .trend-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .comp-card:hover, .exec-card:hover, .insight-card:hover, .adv-card:hover, .opp-card:hover, .trend-card:hover {
+    transform: none;
+    background: #f9f9f9;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .cat-nav { display: none; }
+  .comp-grid { grid-template-columns: repeat(2, 1fr); }
+  footer { border-top: 1px solid #ccc; }
+  footer p { color: #666; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L14.09 8.26L21 9.27L16 14.14L17.18 21.02L12 17.77L6.82 21.02L8 14.14L3 9.27L9.91 8.26L12 2Z"/></svg>
+        Lino Press NYC &mdash; Competitive Intelligence
+      </div>
+      <h1>Competitive Landscape<br>Analysis</h1>
+      <p class="hero-sub">A comprehensive study of 20 competitors across 4 categories, identifying market gaps and strategic opportunities for NYC's first and largest Latino printing company.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Report Date</span>
+          <span class="hero-meta-value">April 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Competitors</span>
+          <span class="hero-meta-value">20</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Categories</span>
+          <span class="hero-meta-value">4</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Founded</span>
+          <span class="hero-meta-value">1994</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     EXECUTIVE SUMMARY
+     ============================================================ -->
+<section id="executive-summary">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">01 / Executive Summary</div>
+      <h2 class="section-title">Key Findings at a Glance</h2>
+      <p class="section-desc">Lino Press holds a structurally unique position in the NYC printing market. No other company combines Latino ownership, MBE certification, and union labor into a single operation.</p>
+    </div>
+    <div class="exec-grid">
+      <div class="exec-card reveal reveal-delay-1">
+        <div class="exec-card-icon gold">&#9733;</div>
+        <div class="exec-number">20</div>
+        <h4>Competitors Analyzed</h4>
+        <p>Across direct local printers, national online platforms, experience-based competitors, and luxury boutique studios in the NYC metro area.</p>
+      </div>
+      <div class="exec-card reveal reveal-delay-2">
+        <div class="exec-card-icon red">&#9878;</div>
+        <div class="exec-number">3x</div>
+        <h4>Triple Differentiator</h4>
+        <p>Latino-owned + MBE Certified + Union Printer. No other NYC printing company can claim this combination, unlocking government and union contract access.</p>
+      </div>
+      <div class="exec-card reveal reveal-delay-3">
+        <div class="exec-card-icon blue">&#9776;</div>
+        <div class="exec-number">5</div>
+        <h4>Market Gaps Identified</h4>
+        <p>From Latino business identity printing to union contract pipelines, each gap represents an untapped revenue stream with limited competition.</p>
+      </div>
+      <div class="exec-card reveal reveal-delay-4">
+        <div class="exec-card-icon gold">&#8599;</div>
+        <div class="exec-number">30+</div>
+        <h4>Years of Heritage</h4>
+        <p>Since 1994, Lino Press has served Upper Manhattan as the broadest full-service printer north of 125th Street, a geographic advantage no competitor matches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPETITOR GRID
+     ============================================================ -->
+<section id="competitors">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">02 / Competitor Grid</div>
+      <h2 class="section-title">The Competitive Field</h2>
+      <p class="section-desc">Visual analysis of all 20 competitors organized by category, showing design quality, price positioning, standout features, and service breadth.</p>
+    </div>
+
+    <div class="cat-nav reveal">
+      <button class="cat-btn active" data-cat="all">All (20)</button>
+      <button class="cat-btn" data-cat="direct">Direct Local (7)</button>
+      <button class="cat-btn" data-cat="national">Aspirational National (5)</button>
+      <button class="cat-btn" data-cat="experience">Experience (4)</button>
+      <button class="cat-btn" data-cat="luxury">Luxury / Boutique (4)</button>
+    </div>
+
+    <div class="comp-grid" id="compGrid">
+
+      <!-- DIRECT LOCAL -->
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#1</span>
+        <div class="comp-name">Print Source / Imprenta</div>
+        <div class="comp-location">Washington Heights, NY 10033</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s5"></div></div>
+          <span class="comp-score-num">5</span>
+        </div>
+        <span class="comp-price budget">Budget to Mid-range</span>
+        <p class="comp-feature">Bilingual Spanish/English service in the same Washington Heights neighborhood, deep community ties</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Business Cards</span>
+          <span class="comp-tag">Banners</span>
+          <span class="comp-tag">Menus</span>
+          <span class="comp-tag">Copy Services</span>
+          <span class="comp-tag">Flyers</span>
+          <span class="comp-tag">Custom Printing</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#2</span>
+        <div class="comp-name">VSL Print (Varick Street Litho)</div>
+        <div class="comp-location">Manhattan, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s8"></div></div>
+          <span class="comp-score-num">8</span>
+        </div>
+        <span class="comp-price mid">Mid-range to Premium</span>
+        <p class="comp-feature">One of the last letterpress operations in NYC; massive production capacity across 4 floors</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Offset</span>
+          <span class="comp-tag">Digital</span>
+          <span class="comp-tag">Large Format</span>
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Foil Stamping</span>
+          <span class="comp-tag">Embossing</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#3</span>
+        <div class="comp-name">Earth Enterprise</div>
+        <div class="comp-location">Midtown Manhattan, NY + NJ</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price mid">Mid-range</span>
+        <p class="comp-feature">Dual Manhattan/NJ facilities allow high-volume production with fast NYC delivery</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Offset</span>
+          <span class="comp-tag">Digital</span>
+          <span class="comp-tag">Large Format</span>
+          <span class="comp-tag">Rush Orders</span>
+          <span class="comp-tag">Commercial</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#4</span>
+        <div class="comp-name">Best Printing NYC</div>
+        <div class="comp-location">New York, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s6"></div></div>
+          <span class="comp-score-num">6</span>
+        </div>
+        <span class="comp-price budget">Budget to Mid-range</span>
+        <p class="comp-feature">Aggressive value pricing while maintaining quality; strong direct mail capabilities</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Brochures</span>
+          <span class="comp-tag">Posters</span>
+          <span class="comp-tag">Direct Mail</span>
+          <span class="comp-tag">Journals</span>
+          <span class="comp-tag">Banners</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#5</span>
+        <div class="comp-name">Digital City Printing</div>
+        <div class="comp-location">Midtown Manhattan, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price premium">Mid-range to Premium</span>
+        <p class="comp-feature">Same-day and rush turnaround with oversized B2-format digital printing capability</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Same-Day</span>
+          <span class="comp-tag">Rush</span>
+          <span class="comp-tag">Digital</span>
+          <span class="comp-tag">Large Format</span>
+          <span class="comp-tag">Business Cards</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#6</span>
+        <div class="comp-name">Thomas Group Printing</div>
+        <div class="comp-location">New York, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s8"></div></div>
+          <span class="comp-score-num">8</span>
+        </div>
+        <span class="comp-price mid">Mid-range to Premium</span>
+        <p class="comp-feature">112+ years of NYC printing heritage; fourth-generation family ownership with deep institutional knowledge</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Offset</span>
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Foil Stamping</span>
+          <span class="comp-tag">Embossing</span>
+          <span class="comp-tag">Engraving</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="direct">
+        <span class="comp-rank">#7</span>
+        <div class="comp-name">Printleaf</div>
+        <div class="comp-location">Midtown Manhattan, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s6"></div></div>
+          <span class="comp-score-num">6</span>
+        </div>
+        <span class="comp-price mid">Mid-range</span>
+        <p class="comp-feature">Strong signage and decal capabilities alongside traditional commercial printing</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Offset</span>
+          <span class="comp-tag">Digital</span>
+          <span class="comp-tag">Signs</span>
+          <span class="comp-tag">Banners</span>
+          <span class="comp-tag">Decals</span>
+          <span class="comp-tag">Vehicle Wraps</span>
+        </div>
+      </div>
+
+      <!-- ASPIRATIONAL NATIONAL -->
+      <div class="comp-card reveal" data-cat="national">
+        <span class="comp-rank">#8</span>
+        <div class="comp-name">MOO</div>
+        <div class="comp-location">London / Boston (Global)</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s9"></div></div>
+          <span class="comp-score-num">9</span>
+        </div>
+        <span class="comp-price premium">Premium</span>
+        <p class="comp-feature">Printfinity (different design on every card); Luxe 4-layer Mohawk Superfine cards; design-first brand positioning</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Business Cards</span>
+          <span class="comp-tag">Postcards</span>
+          <span class="comp-tag">Stickers</span>
+          <span class="comp-tag">Notebooks</span>
+          <span class="comp-tag">Letterhead</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="national">
+        <span class="comp-rank">#9</span>
+        <div class="comp-name">VistaPrint</div>
+        <div class="comp-location">Waltham, MA (Global)</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price budget">Budget to Mid-range</span>
+        <p class="comp-feature">Largest product catalog in online printing; AI-powered design tools; massive scale equals low prices</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Business Cards</span>
+          <span class="comp-tag">Marketing</span>
+          <span class="comp-tag">Signs</span>
+          <span class="comp-tag">Apparel</span>
+          <span class="comp-tag">Promotional</span>
+          <span class="comp-tag">Packaging</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="national">
+        <span class="comp-rank">#10</span>
+        <div class="comp-name">Printful</div>
+        <div class="comp-location">Charlotte, NC (Global)</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price budget">Budget to Mid-range</span>
+        <p class="comp-feature">Zero upfront cost print-on-demand model; e-commerce integration; global fulfillment network</p>
+        <div class="comp-tags">
+          <span class="comp-tag">T-Shirts</span>
+          <span class="comp-tag">Hoodies</span>
+          <span class="comp-tag">Hats</span>
+          <span class="comp-tag">Posters</span>
+          <span class="comp-tag">Stickers</span>
+          <span class="comp-tag">Embroidery</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="national">
+        <span class="comp-rank">#11</span>
+        <div class="comp-name">48HourPrint</div>
+        <div class="comp-location">Cleveland, OH (National)</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s6"></div></div>
+          <span class="comp-score-num">6</span>
+        </div>
+        <span class="comp-price budget">Budget</span>
+        <p class="comp-feature">Guaranteed 48-hour turnaround on all products; 24-hour rush option; aggressive pricing</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Business Cards</span>
+          <span class="comp-tag">Brochures</span>
+          <span class="comp-tag">Postcards</span>
+          <span class="comp-tag">Flyers</span>
+          <span class="comp-tag">Booklets</span>
+          <span class="comp-tag">Posters</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="national">
+        <span class="comp-rank">#12</span>
+        <div class="comp-name">4over</div>
+        <div class="comp-location">Glendale, CA (National)</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price wholesale">Wholesale / Trade</span>
+        <p class="comp-feature">Wholesale/trade-only pricing model; ideal for print brokers and resellers; same-day production options</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Business Cards</span>
+          <span class="comp-tag">Postcards</span>
+          <span class="comp-tag">Banners</span>
+          <span class="comp-tag">Signs</span>
+          <span class="comp-tag">Packaging</span>
+          <span class="comp-tag">Wide Format</span>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE COMPETITORS -->
+      <div class="comp-card reveal" data-cat="experience">
+        <span class="comp-rank">#13</span>
+        <div class="comp-name">FASTSIGNS (Manhattan)</div>
+        <div class="comp-location">Multiple Manhattan locations</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price mid">Mid-range to Premium</span>
+        <p class="comp-feature">National franchise recognition; full-service signage solutions including installation; strong B2B focus</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Banners</span>
+          <span class="comp-tag">Building Signs</span>
+          <span class="comp-tag">Vehicle Graphics</span>
+          <span class="comp-tag">Window Graphics</span>
+          <span class="comp-tag">ADA Signs</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="experience">
+        <span class="comp-rank">#14</span>
+        <div class="comp-name">Custom Ink</div>
+        <div class="comp-location">Upper East Side, Manhattan + National</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price mid">Mid-range</span>
+        <p class="comp-feature">Intuitive online design lab; no minimums; 1-hour pickup at Manhattan location; massive brand awareness</p>
+        <div class="comp-tags">
+          <span class="comp-tag">T-Shirts</span>
+          <span class="comp-tag">Hoodies</span>
+          <span class="comp-tag">Hats</span>
+          <span class="comp-tag">Tote Bags</span>
+          <span class="comp-tag">Promotional</span>
+          <span class="comp-tag">Embroidery</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="experience">
+        <span class="comp-rank">#15</span>
+        <div class="comp-name">SameDayCustom</div>
+        <div class="comp-location">Upper Manhattan, NY + National</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s6"></div></div>
+          <span class="comp-score-num">6</span>
+        </div>
+        <span class="comp-price mid">Mid-range</span>
+        <p class="comp-feature">1-hour turnaround for same-day custom apparel; direct competitor in the Upper Manhattan geography</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Screen Printing</span>
+          <span class="comp-tag">DTG</span>
+          <span class="comp-tag">Heat Transfers</span>
+          <span class="comp-tag">Embroidery</span>
+          <span class="comp-tag">Same-Day</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="experience">
+        <span class="comp-rank">#16</span>
+        <div class="comp-name">Signs NY</div>
+        <div class="comp-location">New York, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s7"></div></div>
+          <span class="comp-score-num">7</span>
+        </div>
+        <span class="comp-price mid">Mid-range to Premium</span>
+        <p class="comp-feature">Full fabrication and installation service; specializes in permanent architectural signage and channel letters</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Storefront Signs</span>
+          <span class="comp-tag">Channel Letters</span>
+          <span class="comp-tag">Lobby Branding</span>
+          <span class="comp-tag">Fleet Graphics</span>
+          <span class="comp-tag">Events</span>
+        </div>
+      </div>
+
+      <!-- LUXURY / BOUTIQUE -->
+      <div class="comp-card reveal" data-cat="luxury">
+        <span class="comp-rank">#17</span>
+        <div class="comp-name">Publicide</div>
+        <div class="comp-location">Midtown Manhattan, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s9"></div></div>
+          <span class="comp-score-num">9</span>
+        </div>
+        <span class="comp-price luxury">Premium to Luxury</span>
+        <p class="comp-feature">Holographic foiling, edge painting, and custom die-cutting; clients include top luxury fashion and beauty brands</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Holographic Foil</span>
+          <span class="comp-tag">Edge Painting</span>
+          <span class="comp-tag">Die-Cutting</span>
+          <span class="comp-tag">Custom Packaging</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="luxury">
+        <span class="comp-rank">#18</span>
+        <div class="comp-name">Luxury Printing NYC</div>
+        <div class="comp-location">New York, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s9"></div></div>
+          <span class="comp-score-num">9</span>
+        </div>
+        <span class="comp-price luxury">Luxury</span>
+        <p class="comp-feature">Pure luxury positioning; finest quality card stocks; full suite of premium finishes</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Foil Stamping</span>
+          <span class="comp-tag">Engraving</span>
+          <span class="comp-tag">Embossing</span>
+          <span class="comp-tag">Thermography</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="luxury">
+        <span class="comp-rank">#19</span>
+        <div class="comp-name">Print Icon</div>
+        <div class="comp-location">Chelsea, Manhattan, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s8"></div></div>
+          <span class="comp-score-num">8</span>
+        </div>
+        <span class="comp-price premium">Mid-range to Premium</span>
+        <p class="comp-feature">35+ year heritage combining antique and modern techniques; Chelsea location; personalized consultations</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Engraving</span>
+          <span class="comp-tag">Digital Indigo</span>
+          <span class="comp-tag">Offset</span>
+          <span class="comp-tag">Books</span>
+          <span class="comp-tag">Portfolios</span>
+        </div>
+      </div>
+
+      <div class="comp-card reveal" data-cat="luxury">
+        <span class="comp-rank">#20</span>
+        <div class="comp-name">Dolce Press</div>
+        <div class="comp-location">Bohemia, Long Island, NY</div>
+        <div class="comp-score-row">
+          <span class="comp-score-label">Design</span>
+          <div class="comp-score-bar"><div class="comp-score-fill s9"></div></div>
+          <span class="comp-score-num">9</span>
+        </div>
+        <span class="comp-price luxury">Premium to Luxury</span>
+        <p class="comp-feature">In-house artisan letterpress on cotton paper; foil stamping on unusual materials (acrylic, wood, velvet)</p>
+        <div class="comp-tags">
+          <span class="comp-tag">Letterpress</span>
+          <span class="comp-tag">Foil Stamping</span>
+          <span class="comp-tag">Digital</span>
+          <span class="comp-tag">Wedding Invitations</span>
+          <span class="comp-tag">Custom Design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARKET GAPS & NICHE OPPORTUNITIES
+     ============================================================ -->
+<section id="opportunities">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">03 / Market Gaps &amp; Niche Opportunities</div>
+      <h2 class="section-title">Where the White Space Lives</h2>
+      <p class="section-desc">Five high-potential market gaps where Lino Press can establish dominance with minimal direct competition. Each includes a specific action plan.</p>
+    </div>
+
+    <div class="opp-list">
+
+      <div class="opp-card reveal">
+        <div class="opp-accent"></div>
+        <div class="opp-content">
+          <div class="opp-num">Opportunity 01</div>
+          <div class="opp-title">Latino / Hispanic Business Identity Printing</div>
+          <p class="opp-desc">No other NYC printing company markets itself as a Latino-owned, MBE-certified, union printer. The underserved market includes 2.4M+ Hispanic New Yorkers and thousands of Latino-owned businesses needing bilingual print materials, cultural event printing, and culturally-informed graphic design.</p>
+          <div class="opp-action">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Create dedicated bilingual landing pages and service packages for Latino celebrations, community events, and immigrant small business starter kits.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card reveal">
+        <div class="opp-accent"></div>
+        <div class="opp-content">
+          <div class="opp-num">Opportunity 02</div>
+          <div class="opp-title">Union &amp; Government Contract Printing</div>
+          <p class="opp-desc">Very few NYC printers combine MBE certification with union labor. NYC, NYS, and federal agencies have mandatory minority and union procurement quotas. Labor unions, political campaigns, and nonprofits specifically require the union bug on all printed materials.</p>
+          <div class="opp-action">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Build a dedicated government/union contracting page, register on NYC MWBE vendor portals, and pursue GSA scheduling. Target labor unions, political campaigns, and city agencies directly.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card reveal">
+        <div class="opp-accent"></div>
+        <div class="opp-content">
+          <div class="opp-num">Opportunity 03</div>
+          <div class="opp-title">Same-Day / 24-Hour Rush Printing for Uptown Manhattan</div>
+          <p class="opp-desc">Most rush printing services are concentrated in Midtown. Uptown Manhattan (Washington Heights, Inwood, Harlem, South Bronx) has virtually no premium same-day printing option. Lino Press already offers 24-hour printing but does not market this aggressively.</p>
+          <div class="opp-action">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Launch a "Rush Uptown" brand campaign positioning Lino Press as the only full-service rush printer north of 96th Street. Offer messenger delivery throughout upper Manhattan and the Bronx.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card reveal">
+        <div class="opp-accent"></div>
+        <div class="opp-content">
+          <div class="opp-num">Opportunity 04</div>
+          <div class="opp-title">E-Commerce Print-on-Demand for Small Brands</div>
+          <p class="opp-desc">National players like Printful and VistaPrint dominate online ordering, but they lack the personal touch, local pickup, and Spanish-language support that NYC small businesses need. No local NYC printer offers a modern e-commerce storefront with real-time pricing and self-service ordering.</p>
+          <div class="opp-action">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Build a modern online ordering portal with real-time quoting, bilingual UX, and same-day local pickup. Position as the local alternative to VistaPrint.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="opp-card reveal">
+        <div class="opp-accent"></div>
+        <div class="opp-content">
+          <div class="opp-num">Opportunity 05</div>
+          <div class="opp-title">Cultural &amp; Community Event One-Stop Shop</div>
+          <p class="opp-desc">NYC hosts thousands of cultural festivals, church events, school functions, nonprofit galas, and community celebrations. These events need banners, t-shirts, programs, tickets, and promotional items all from one vendor. No competitor bundles all-in-one event packages with bilingual design support.</p>
+          <div class="opp-action">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Create all-in-one "Event Printing Packages" that bundle large-format banners, custom t-shirts, printed programs, tickets, and promotional giveaways with bilingual design consultation included.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KEY INSIGHTS
+     ============================================================ -->
+<section id="insights">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">04 / Key Insights</div>
+      <h2 class="section-title">What the Data Tells Us</h2>
+      <p class="section-desc">Seven strategic insights distilled from analyzing 20 competitors across the NYC printing landscape.</p>
+    </div>
+
+    <div class="insights-grid">
+      <div class="insight-card reveal">
+        <div class="insight-num">01</div>
+        <div class="insight-text"><strong>Unmatched triple differentiator.</strong> Lino Press is the only NYC printer that combines Latino ownership, MBE certification, and union labor. No competitor can replicate this combination.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">02</div>
+        <div class="insight-text"><strong>Closest competitor is limited.</strong> Print Source/Imprenta operates in the same Washington Heights neighborhood but lacks the range of services -- no offset, no large format, no bookbinding.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">03</div>
+        <div class="insight-text"><strong>Premium tier opportunity.</strong> Luxury/boutique printers command 3-5x higher margins but serve a different clientele. There is room for Lino Press to create a premium tier within their existing operation.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">04</div>
+        <div class="insight-text"><strong>National platforms have local gaps.</strong> VistaPrint, MOO, and 48HourPrint compete on price and convenience but cannot offer same-day local pickup, in-person consultations, or bilingual service.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">05</div>
+        <div class="insight-text"><strong>Bundled full-service advantage.</strong> Experience competitors each specialize in one category that Lino Press covers. The bundled full-service offering is a structural advantage over specialists.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">06</div>
+        <div class="insight-text"><strong>Bilingual digital void.</strong> No competitor has a strong bilingual (Spanish/English) digital presence targeting the 2.4M+ Hispanic population in the NYC metro area. This is wide open.</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="insight-num">07</div>
+        <div class="insight-text"><strong>Union printing is a high-value niche.</strong> Fewer than 10 verified union printers operate in NYC. The union printing market offers high-value recurring contracts with limited competition.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LINO PRESS ADVANTAGES
+     ============================================================ -->
+<section id="advantages">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">05 / Competitive Advantages</div>
+      <h2 class="section-title">Lino Press Structural Moats</h2>
+      <p class="section-desc">Six durable competitive advantages that position Lino Press uniquely in the NYC printing market.</p>
+    </div>
+
+    <div class="adv-grid">
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:rgba(198,40,40,0.15);">&#9873;</div>
+        <div class="adv-title">Only Latino-owned full-service printing company in NYC, operating since 1994</div>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:var(--gold-dim);">&#9878;</div>
+        <div class="adv-title">Triple certification: Union Printer + MBE Certified + 30+ years in business</div>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:rgba(44,95,138,0.2);">&#9906;</div>
+        <div class="adv-title">Geographic monopoly on full-service printing in Upper Manhattan north of 125th Street</div>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:rgba(198,40,40,0.15);">&#9881;</div>
+        <div class="adv-title">Broadest service range of any single printer in the Washington Heights / Inwood corridor</div>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:var(--gold-dim);">&#9201;</div>
+        <div class="adv-title">24-hour printing capability that no uptown competitor matches</div>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon" style="background:rgba(44,95,138,0.2);">&#9734;</div>
+        <div class="adv-title">Deep cultural and language alignment with the largest demographic in their trade area</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DESIGN TRENDS
+     ============================================================ -->
+<section id="trends">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">06 / Design Trends</div>
+      <h2 class="section-title">What the Best Competitors Do</h2>
+      <p class="section-desc">Patterns observed across the highest-scoring competitors that Lino Press should consider adopting for their digital presence and brand experience.</p>
+    </div>
+
+    <div class="trends-grid">
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#9998;</div>
+        <div class="trend-title">Design-First Brand Identity</div>
+        <p class="trend-desc">MOO and Publicide lead with visual storytelling. Their websites feel like portfolios, not catalogs. Lino Press should showcase finished work prominently with large, cinematic photography.</p>
+      </div>
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#9889;</div>
+        <div class="trend-title">Instant Online Quoting</div>
+        <p class="trend-desc">VistaPrint and Custom Ink let customers configure products and see prices in real time. A self-service pricing tool would differentiate Lino Press from every local NYC competitor.</p>
+      </div>
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#9881;</div>
+        <div class="trend-title">Process Transparency</div>
+        <p class="trend-desc">High-scoring printers like VSL Print and Thomas Group show their equipment, their shop floor, and their people. Transparency builds trust, especially for first-time buyers.</p>
+      </div>
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#9733;</div>
+        <div class="trend-title">Premium Material Storytelling</div>
+        <p class="trend-desc">Dolce Press and Luxury Printing NYC educate customers on paper stocks, finishes, and techniques. This positions them as experts and justifies premium pricing for specialty work.</p>
+      </div>
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#128241;</div>
+        <div class="trend-title">Mobile-First Ordering</div>
+        <p class="trend-desc">National platforms are fully mobile-optimized with app-like experiences. Local printers who offer mobile ordering and file upload capture the growing segment of on-the-go business owners.</p>
+      </div>
+      <div class="trend-card reveal">
+        <div class="trend-icon">&#127908;</div>
+        <div class="trend-title">Heritage as Brand Equity</div>
+        <p class="trend-desc">Thomas Group (112 years) and Print Icon (35+ years) lean heavily on their history. Lino Press's 30+ year Dominican heritage story is equally compelling and entirely untold online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <p><span class="brand-mark">Lino Press NYC</span> &mdash; Competitive Landscape Analysis &mdash; April 2026</p>
+    <p style="margin-top:8px;">Prepared by VioX AI &bull; Cinematic Sites Intelligence Pipeline</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Scroll reveal
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// Category filter
+(function() {
+  const btns = document.querySelectorAll('.cat-btn');
+  const cards = document.querySelectorAll('.comp-card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = '';
+          // Re-trigger reveal
+          requestAnimationFrame(() => card.classList.add('visible'));
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

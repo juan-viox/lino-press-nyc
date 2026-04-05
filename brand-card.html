@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Identity Card — Lino Press NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset & Base ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --color-primary: #1A1A2E;
+  --color-secondary: #C8A84E;
+  --color-accent1: #C62828;
+  --color-accent2: #2C5F8A;
+  --color-accent3: #5A6675;
+  --color-accent4: #D4A053;
+  --color-dark: #0D0D1A;
+  --color-light: #F5F0E8;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Ambient background ─── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(200, 168, 78, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(44, 95, 138, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(198, 40, 40, 0.03) 0%, transparent 40%);
+  animation: ambientDrift 30s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ambientDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-3%, -3%) rotate(2deg); }
+}
+
+/* ─── Layout ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+section:last-of-type { border-bottom: none; }
+
+/* ─── Section Labels ─── */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-secondary);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--color-light);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.55);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ─── Glass Card ─── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.glass:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Scroll Reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── 1. HEADER ─── */
+.header {
+  padding: 100px 0 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.header-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--color-light) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-tagline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--color-secondary);
+  margin-top: 8px;
+}
+
+.header-meta {
+  margin-top: 32px;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.header-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+  margin: 32px auto 0;
+}
+
+/* ─── 2. LOGO ─── */
+.logo-section { text-align: center; }
+
+.logo-placeholder {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 64px;
+  border: 2px dashed rgba(200, 168, 78, 0.25);
+  border-radius: var(--radius);
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.logo-mark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 56px;
+  letter-spacing: 8px;
+  color: var(--color-secondary);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.logo-mark-sub {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 20px;
+  color: var(--color-secondary);
+  opacity: 0.7;
+  margin-top: 4px;
+  margin-right: -20px;
+}
+
+.logo-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.logo-note {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.4);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ─── 3. COLOR PALETTE ─── */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.swatch {
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.swatch:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.swatch-color {
+  height: 120px;
+  position: relative;
+}
+
+.swatch-color::after {
+  content: attr(data-role);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.swatch-info {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.swatch-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.swatch-hex {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.6);
+  margin-bottom: 2px;
+}
+
+.swatch-var {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  color: rgba(245, 240, 232, 0.35);
+}
+
+/* Contrast indicators */
+.swatch[data-contrast="dark"] .swatch-color { color: var(--color-dark); }
+.swatch[data-contrast="light"] .swatch-color { color: var(--color-light); }
+
+/* ─── 4. TYPOGRAPHY ─── */
+.type-section { margin-top: 48px; }
+
+.type-block {
+  padding: 40px;
+  margin-bottom: 24px;
+}
+
+.type-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.type-family {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  letter-spacing: 0.5px;
+}
+
+.type-weights {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+.type-sample { margin-bottom: 24px; }
+.type-sample:last-child { margin-bottom: 0; }
+
+.type-sample-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.3);
+  margin-bottom: 6px;
+}
+
+.display-h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.1;
+}
+
+.display-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+.display-h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.body-regular {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.body-light {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.body-medium {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(245, 240, 232, 0.6);
+}
+
+.body-semibold {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(245, 240, 232, 0.7);
+}
+
+/* Pairing demo */
+.pairing-demo {
+  padding: 48px;
+  margin-top: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pairing-demo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-secondary), var(--color-accent1));
+  border-radius: 4px;
+}
+
+.pairing-headline {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.pairing-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.6);
+  max-width: 640px;
+}
+
+/* ─── 5. TONE OF VOICE ─── */
+.tone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.tone-card {
+  padding: 32px;
+}
+
+.tone-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 12px;
+}
+
+.tone-card-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.tone-card-detail {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.5);
+  line-height: 1.6;
+}
+
+.headlines-list {
+  margin-top: 40px;
+}
+
+.headline-item {
+  padding: 24px 32px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headline-num {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  opacity: 0.5;
+  min-width: 24px;
+}
+
+.headline-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 26px);
+  line-height: 1.3;
+}
+
+/* ─── 6. BRAND DIFFERENTIATORS ─── */
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.diff-card {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.diff-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.diff-card:hover::before { opacity: 1; }
+
+.diff-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.diff-icon-union { background: rgba(200, 168, 78, 0.12); color: var(--color-secondary); }
+.diff-icon-mbe { background: rgba(44, 95, 138, 0.15); color: var(--color-accent2); }
+.diff-icon-years { background: rgba(198, 40, 40, 0.12); color: var(--color-accent1); }
+.diff-icon-bilingual { background: rgba(212, 160, 83, 0.12); color: var(--color-accent4); }
+.diff-icon-family { background: rgba(90, 102, 117, 0.15); color: var(--color-accent3); }
+.diff-icon-first { background: rgba(200, 168, 78, 0.12); color: var(--color-secondary); }
+
+.diff-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.diff-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.5);
+  line-height: 1.6;
+}
+
+/* ─── 7. SECTION PREVIEW ─── */
+.sections-list {
+  margin-top: 40px;
+  counter-reset: section-counter;
+}
+
+.section-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 28px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-sm);
+  counter-increment: section-counter;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.section-row:hover {
+  background: var(--glass-hover);
+  transform: translateX(4px);
+}
+
+.section-row-num {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  opacity: 0.4;
+  min-width: 28px;
+}
+
+.section-row-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  flex: 1;
+}
+
+.section-row-module {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  color: rgba(245, 240, 232, 0.35);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Footer ─── */
+.brand-footer {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.footer-text a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  section { padding: 56px 0; }
+  .palette-grid { grid-template-columns: repeat(2, 1fr); }
+  .diff-grid { grid-template-columns: 1fr; }
+  .type-block, .pairing-demo { padding: 24px; }
+  .logo-mark { font-size: 40px; letter-spacing: 5px; }
+  .logo-mark-sub { font-size: 24px; letter-spacing: 14px; margin-right: -14px; }
+  .section-row { flex-wrap: wrap; }
+  .section-row-module { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .palette-grid { grid-template-columns: 1fr; }
+  .tone-grid { grid-template-columns: 1fr; }
+  .header { padding: 64px 0 40px; }
+}
+
+/* ─── Print Stylesheet ─── */
+@media print {
+  body {
+    background: #fff !important;
+    color: #1A1A2E !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body::before { display: none; }
+
+  .container { max-width: 100%; padding: 0 16px; }
+
+  section {
+    padding: 32px 0;
+    border-bottom: 1px solid #ddd;
+    break-inside: avoid;
+  }
+
+  .glass {
+    background: #f9f9f9 !important;
+    border: 1px solid #ddd !important;
+    backdrop-filter: none !important;
+  }
+
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  .section-label, .section-label::before { color: #C8A84E !important; background: #C8A84E !important; }
+  .section-title { color: #1A1A2E !important; }
+  .section-subtitle, .tone-card-detail, .diff-desc, .body-regular, .body-light, .pairing-body { color: #444 !important; }
+
+  .swatch-color { border: 1px solid #ccc; }
+  .swatch-info { background: #f5f5f5 !important; border-color: #ddd !important; }
+  .swatch-name { color: #1A1A2E !important; }
+  .swatch-hex, .swatch-var { color: #666 !important; }
+
+  .header h1 {
+    background: none !important;
+    -webkit-text-fill-color: #1A1A2E !important;
+    color: #1A1A2E !important;
+  }
+
+  .header-tagline { color: #C8A84E !important; }
+  .header-meta, .footer-text { color: #999 !important; }
+
+  .logo-mark, .logo-mark-sub { color: #C8A84E !important; }
+
+  .headline-text { color: #1A1A2E !important; }
+  .tone-card-value { color: #1A1A2E !important; }
+  .diff-title { color: #1A1A2E !important; }
+  .section-row-name { color: #1A1A2E !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="container">
+    <p class="header-eyebrow reveal">Brand Identity Card</p>
+    <h1 class="reveal">Lino Press NY</h1>
+    <p class="header-tagline reveal">&ldquo;The Power of Printing&rdquo;</p>
+    <p class="header-meta reveal">
+      Est. 1994 &nbsp;&middot;&nbsp; Washington Heights, NYC &nbsp;&middot;&nbsp; linopress.nyc
+    </p>
+    <div class="header-divider reveal"></div>
+  </div>
+</header>
+
+<!-- ═══ LOGO ═══ -->
+<section class="logo-section">
+  <div class="container">
+    <p class="section-label reveal">02 &mdash; Logo</p>
+    <h2 class="section-title reveal">Brand Mark</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">Typographic logo representation. Client logo will be recreated as inline SVG with <code style="font-size: 12px; color: var(--color-secondary); background: rgba(200,168,78,0.1); padding: 2px 6px; border-radius: 4px;">currentColor</code> for theme flexibility.</p>
+
+    <div class="logo-placeholder reveal">
+      <span class="logo-badge">Placeholder</span>
+      <div class="logo-mark">LINO PRESS</div>
+      <div class="logo-mark-sub">NY</div>
+    </div>
+    <p class="logo-note reveal">Client logo to be provided — will be recreated as inline SVG with currentColor for seamless integration with dark/light themes and gradient overlays.</p>
+  </div>
+</section>
+
+<!-- ═══ COLOR PALETTE ═══ -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">03 &mdash; Color Palette</p>
+    <h2 class="section-title reveal">Brand Colors</h2>
+    <p class="section-subtitle reveal">Eight carefully curated colors reflecting heritage printing craft, Dominican pride, and New York professionalism.</p>
+
+    <div class="palette-grid">
+      <div class="swatch glass reveal" data-contrast="light" onclick="copyHex(this, '#1A1A2E')">
+        <div class="swatch-color" style="background: #1A1A2E;" data-role="Primary"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Press Ink</div>
+          <div class="swatch-hex">#1A1A2E</div>
+          <div class="swatch-var">--color-primary</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="dark" onclick="copyHex(this, '#C8A84E')">
+        <div class="swatch-color" style="background: #C8A84E;" data-role="Secondary"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Heritage Gold</div>
+          <div class="swatch-hex">#C8A84E</div>
+          <div class="swatch-var">--color-secondary</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="light" onclick="copyHex(this, '#C62828')">
+        <div class="swatch-color" style="background: #C62828;" data-role="Accent 1"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dominican Red</div>
+          <div class="swatch-hex">#C62828</div>
+          <div class="swatch-var">--color-accent1</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="light" onclick="copyHex(this, '#2C5F8A')">
+        <div class="swatch-color" style="background: #2C5F8A;" data-role="Accent 2"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blueprint Blue</div>
+          <div class="swatch-hex">#2C5F8A</div>
+          <div class="swatch-var">--color-accent2</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="light" onclick="copyHex(this, '#5A6675')">
+        <div class="swatch-color" style="background: #5A6675;" data-role="Accent 3"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Steel Press</div>
+          <div class="swatch-hex">#5A6675</div>
+          <div class="swatch-var">--color-accent3</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="dark" onclick="copyHex(this, '#D4A053')">
+        <div class="swatch-color" style="background: #D4A053;" data-role="Accent 4"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Amber</div>
+          <div class="swatch-hex">#D4A053</div>
+          <div class="swatch-var">--color-accent4</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="light" onclick="copyHex(this, '#0D0D1A')">
+        <div class="swatch-color" style="background: #0D0D1A;" data-role="Dark"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Midnight Ink</div>
+          <div class="swatch-hex">#0D0D1A</div>
+          <div class="swatch-var">--color-dark</div>
+        </div>
+      </div>
+
+      <div class="swatch glass reveal" data-contrast="dark" onclick="copyHex(this, '#F5F0E8')">
+        <div class="swatch-color" style="background: #F5F0E8;" data-role="Light"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Paper White</div>
+          <div class="swatch-hex">#F5F0E8</div>
+          <div class="swatch-var">--color-light</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TYPOGRAPHY ═══ -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">04 &mdash; Typography</p>
+    <h2 class="section-title reveal">Type System</h2>
+    <p class="section-subtitle reveal">A refined pairing of classic serif and modern sans-serif, bridging print heritage with digital clarity.</p>
+
+    <div class="type-section">
+      <!-- Display Font -->
+      <div class="type-block glass reveal">
+        <div class="type-header">
+          <span class="type-family">Playfair Display</span>
+          <span class="type-weights">400 &middot; 700 &middot; 900 &nbsp;&mdash;&nbsp; Elegant serif for headlines</span>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">H1 &mdash; Display 900</div>
+          <div class="display-h1">The Power of Printing</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">H2 &mdash; Display 700</div>
+          <div class="display-h2">Three Decades of Excellence</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">H3 &mdash; Display 400 Italic</div>
+          <div class="display-h3">Where Craft Meets Community</div>
+        </div>
+      </div>
+
+      <!-- Body Font -->
+      <div class="type-block glass reveal">
+        <div class="type-header">
+          <span class="type-family">Inter</span>
+          <span class="type-weights">300 &middot; 400 &middot; 500 &middot; 600 &nbsp;&mdash;&nbsp; Clean sans for readability</span>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Body Regular &mdash; 400</div>
+          <div class="body-regular">Since 1994, Lino Press has been the beating heart of print in Upper Manhattan. Founded by Franklin Nu&ntilde;ez in Washington Heights, what started as a small community print shop has grown into New York City&rsquo;s first and largest Latino-owned printing company.</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Body Light &mdash; 300</div>
+          <div class="body-light">As a Union Printer and MBE-Certified firm, we&rsquo;re proud to serve government agencies, labor unions, nonprofit organizations, small businesses, and the vibrant communities of New York City.</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">Body Medium &mdash; 500</div>
+          <div class="body-medium">Full-service creative studio. Logo design, brand identity, marketing materials, bilingual layouts, and print-ready artwork.</div>
+        </div>
+        <div class="type-sample">
+          <div class="type-sample-label">UI Label &mdash; 600</div>
+          <div class="body-semibold">GET A FREE QUOTE &nbsp;&nbsp;&bull;&nbsp;&nbsp; EXPLORE SERVICES &nbsp;&nbsp;&bull;&nbsp;&nbsp; CONTACT US</div>
+        </div>
+      </div>
+
+      <!-- Font Pairing Demo -->
+      <div class="pairing-demo glass reveal">
+        <div class="type-sample-label" style="margin-bottom: 16px;">Font Pairing in Action</div>
+        <div class="pairing-headline">Treinta A&ntilde;os<br>de Excelencia</div>
+        <div class="pairing-body">Today, our team &mdash; led by Franklin, his son Hector, and our talented designers &mdash; delivers everything from business cards to building-sized banners. We combine state-of-the-art digital and offset presses with old-school craftsmanship and the personal touch that only a family business can offer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TONE OF VOICE ═══ -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">05 &mdash; Tone of Voice</p>
+    <h2 class="section-title reveal">Brand Voice</h2>
+    <p class="section-subtitle reveal">How Lino Press speaks to the world &mdash; a voice rooted in craft, community, and cultural pride.</p>
+
+    <div class="tone-grid">
+      <div class="tone-card glass reveal">
+        <div class="tone-card-label">Mood</div>
+        <div class="tone-card-value">Heritage craft meets modern NYC energy</div>
+        <div class="tone-card-detail">The warmth of a family workshop paired with the ambition and pace of New York City. Classic meets bold.</div>
+      </div>
+
+      <div class="tone-card glass reveal">
+        <div class="tone-card-label">Personality</div>
+        <div class="tone-card-value">Proud, Warm, Knowledgeable, Community-Rooted</div>
+        <div class="tone-card-detail">Speaks with the confidence of 30+ years of expertise. Welcoming to every client, from first-time to Fortune 500.</div>
+      </div>
+
+      <div class="tone-card glass reveal">
+        <div class="tone-card-label">Language</div>
+        <div class="tone-card-value">Bilingual English &amp; Spanish</div>
+        <div class="tone-card-detail">English and Spanish woven naturally &mdash; not just translated, but culturally fluent. Reflects the neighborhood and the clientele.</div>
+      </div>
+    </div>
+
+    <div class="headlines-list">
+      <p class="section-label reveal" style="margin-top: 48px; margin-bottom: 20px;">Sample Headlines</p>
+
+      <div class="headline-item glass reveal">
+        <span class="headline-num">01</span>
+        <span class="headline-text">The Power of Printing</span>
+      </div>
+      <div class="headline-item glass reveal">
+        <span class="headline-num">02</span>
+        <span class="headline-text">Treinta A&ntilde;os de Excelencia</span>
+      </div>
+      <div class="headline-item glass reveal">
+        <span class="headline-num">03</span>
+        <span class="headline-text">Where Craft Meets Community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BRAND DIFFERENTIATORS ═══ -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">06 &mdash; Differentiators</p>
+    <h2 class="section-title reveal">What Sets Us Apart</h2>
+    <p class="section-subtitle reveal">The pillars that make Lino Press truly unique in New York&rsquo;s printing landscape.</p>
+
+    <div class="diff-grid">
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-union">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="diff-title">Union Printer</div>
+        <div class="diff-desc">Certified union shop. All work carries the union bug &mdash; required for government contracts, political campaigns, and labor organizations.</div>
+      </div>
+
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-mbe">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="diff-title">MBE Certified</div>
+        <div class="diff-desc">Minority Business Enterprise certification qualifies for city, state, and federal procurement contracts with diversity requirements.</div>
+      </div>
+
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-years">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="diff-title">Founded 1994 &mdash; 30+ Years</div>
+        <div class="diff-desc">Three decades of printing excellence in Washington Heights. Proven reliability and institutional knowledge that no newcomer can match.</div>
+      </div>
+
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-bilingual">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div class="diff-title">Bilingual English &amp; Spanish</div>
+        <div class="diff-desc">Full service in both languages &mdash; design, consultation, and project management. Not just translation, but culturally fluent communication.</div>
+      </div>
+
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-family">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="diff-title">Family-Owned &mdash; Nu&ntilde;ez Family</div>
+        <div class="diff-desc">Two generations of the Nu&ntilde;ez family &mdash; Franklin and Hector &mdash; leading with dedication. Every client is treated like family.</div>
+      </div>
+
+      <div class="diff-card glass reveal">
+        <div class="diff-icon diff-icon-first">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="diff-title">NYC&rsquo;s First Latino Printing Co.</div>
+        <div class="diff-desc">A pioneer and the largest Latino-owned printing company in New York City. A source of pride for the community and the industry.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION PREVIEW ═══ -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">07 &mdash; Site Architecture</p>
+    <h2 class="section-title reveal">Planned Website Sections</h2>
+    <p class="section-subtitle reveal">12 sections mapped to cinematic scroll-driven modules for an immersive brand experience.</p>
+
+    <div class="sections-list">
+      <div class="section-row reveal">
+        <span class="section-row-num">01</span>
+        <span class="section-row-name">Hero</span>
+        <span class="section-row-module">hero-scroll-video</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">02</span>
+        <span class="section-row-name">Brand Statement</span>
+        <span class="section-row-module">text-mask-reveal</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">03</span>
+        <span class="section-row-name">Client Marquee</span>
+        <span class="section-row-module">marquee</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">04</span>
+        <span class="section-row-name">About</span>
+        <span class="section-row-module">about</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">05</span>
+        <span class="section-row-name">Stats &amp; Numbers</span>
+        <span class="section-row-module">stats</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">06</span>
+        <span class="section-row-name">Services</span>
+        <span class="section-row-module">services-list</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">07</span>
+        <span class="section-row-name">Why Choose Us</span>
+        <span class="section-row-module">why-choose-us</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">08</span>
+        <span class="section-row-name">Gallery</span>
+        <span class="section-row-module">gallery</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">09</span>
+        <span class="section-row-name">Testimonials</span>
+        <span class="section-row-module">testimonials</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">10</span>
+        <span class="section-row-name">FAQ</span>
+        <span class="section-row-module">faq</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">11</span>
+        <span class="section-row-name">Contact</span>
+        <span class="section-row-module">contact</span>
+      </div>
+      <div class="section-row reveal">
+        <span class="section-row-num">12</span>
+        <span class="section-row-name">Footer</span>
+        <span class="section-row-module">footer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="brand-footer">
+  <div class="container">
+    <p class="footer-text">
+      Brand Identity Card &nbsp;&middot;&nbsp; <a href="https://linopress.nyc">Lino Press NY</a> &nbsp;&middot;&nbsp; Generated April 2026
+    </p>
+  </div>
+</footer>
+
+<!-- ═══ JavaScript ═══ -->
+<script>
+/* ── Scroll Reveal ── */
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = Array.from(entry.target.parentElement.children)
+          .filter(c => c.classList.contains('reveal'))
+          .indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, Math.min(delay, 4) * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+})();
+
+/* ── Copy Hex on Swatch Click ── */
+function copyHex(el, hex) {
+  if (!navigator.clipboard) return;
+  navigator.clipboard.writeText(hex).then(() => {
+    const info = el.querySelector('.swatch-hex');
+    const original = info.textContent;
+    info.textContent = 'Copied!';
+    info.style.color = 'var(--color-secondary)';
+    setTimeout(() => {
+      info.textContent = original;
+      info.style.color = '';
+    }, 1200);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinematic Website Proposal — Lino Press NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0D0D1A;
+  --bg-card: rgba(26, 26, 46, 0.6);
+  --text: #F5F0E8;
+  --text-muted: rgba(245, 240, 232, 0.6);
+  --gold: #C8A84E;
+  --gold-dim: rgba(200, 168, 78, 0.15);
+  --red: #C62828;
+  --blue: #2C5F8A;
+  --ink: #1A1A2E;
+  --steel: #5A6675;
+  --amber: #D4A053;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --radius: 16px;
+  --glass: rgba(26, 26, 46, 0.45);
+  --glass-border: rgba(200, 168, 78, 0.12);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ========== UTILITY ========== */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+.gold { color: var(--gold); }
+.red { color: var(--red); }
+.blue { color: var(--blue); }
+
+/* ========== AMBIENT BACKGROUND ========== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(200,168,78,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 90%, rgba(44,95,138,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(198,40,40,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== SECTION BASE ========== */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0;
+}
+
+section:nth-child(even) {
+  background: linear-gradient(180deg, transparent 0%, rgba(26,26,46,0.3) 50%, transparent 100%);
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
+
+h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); margin-bottom: 0.5rem; }
+h4 { font-size: 1.1rem; font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 1.5rem; }
+
+p { max-width: 68ch; }
+p + p { margin-top: 1rem; }
+
+a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ========== GLASS CARD ========== */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(200,168,78,0.08);
+}
+
+/* ========== DIVIDER ========== */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--amber));
+  border-radius: 2px;
+  margin: 1.5rem 0 2rem;
+}
+
+/* ========== COVER ========== */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(200,168,78,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(44,95,138,0.08) 0%, transparent 50%);
+  animation: coverPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes coverPulse {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cover .label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(200,168,78,0.3);
+  border-radius: 100px;
+}
+
+.cover h1 {
+  margin-bottom: 0.5rem;
+}
+
+.cover .tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.cover .meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.cover .meta strong { color: var(--text); }
+
+.cover-logo {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--bg);
+}
+
+/* ========== EXECUTIVE SUMMARY ========== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.summary-grid .glass { padding: 2rem; }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+}
+
+.status-badge.critical {
+  background: rgba(198,40,40,0.15);
+  color: var(--red);
+  border: 1px solid rgba(198,40,40,0.3);
+}
+
+.status-badge.success {
+  background: rgba(72,187,120,0.15);
+  color: #48BB78;
+  border: 1px solid rgba(72,187,120,0.3);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ========== BEFORE / AFTER ========== */
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.comparison-col h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.comparison ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comparison li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.comparison .icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.comparison .before .icon {
+  background: rgba(198,40,40,0.15);
+  color: var(--red);
+}
+
+.comparison .after .icon {
+  background: rgba(72,187,120,0.15);
+  color: #48BB78;
+}
+
+/* ========== SECTION CARDS ========== */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.section-card {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 5rem;
+  color: rgba(200,168,78,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.section-card .module-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ========== COLOR PALETTE ========== */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.swatch {
+  text-align: center;
+}
+
+.swatch-color {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s ease;
+}
+
+.swatch-color:hover { transform: scale(1.05); }
+.swatch-name { font-weight: 600; font-size: 0.85rem; }
+.swatch-hex { font-size: 0.75rem; color: var(--text-muted); font-family: 'SF Mono', monospace; }
+
+.type-preview {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.type-sample h3 { margin-bottom: 0.25rem; }
+.type-sample .font-name { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+.type-sample .display-text {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.mood-statement {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 3rem;
+}
+
+.mood-statement p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--gold);
+  margin: 0 auto;
+}
+
+/* ========== HERO CONCEPT ========== */
+.concept-box {
+  margin-top: 2rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,168,78,0.08) 0%, rgba(44,95,138,0.05) 100%);
+  pointer-events: none;
+}
+
+.concept-box .inner { position: relative; z-index: 1; }
+
+.concept-box .scene-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.concept-box blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+  border-left: 3px solid var(--gold);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  max-width: 60ch;
+}
+
+.scroll-diagram {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scroll-step {
+  flex: 1;
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: rgba(26,26,46,0.6);
+  border: 1px solid var(--glass-border);
+  font-size: 0.8rem;
+}
+
+.scroll-step .step-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.scroll-arrow {
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ========== VOICE AGENT ========== */
+.voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.capability-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.capability-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.capability-list .check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(200,168,78,0.15);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+
+.phone-display {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.phone-display .phone-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  animation: phonePulse 2s ease-in-out infinite;
+}
+
+@keyframes phonePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,168,78,0.3); }
+  50% { box-shadow: 0 0 0 20px rgba(200,168,78,0); }
+}
+
+.phone-display .phone-number {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.phone-display .phone-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.tech-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid rgba(200,168,78,0.2);
+}
+
+/* ========== TECH APPROACH ========== */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tech-card { padding: 2rem; text-align: center; }
+
+.tech-card .tech-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.tech-card .tech-icon.gold-bg { background: var(--gold-dim); }
+.tech-card .tech-icon.blue-bg { background: rgba(44,95,138,0.15); }
+.tech-card .tech-icon.red-bg { background: rgba(198,40,40,0.15); }
+
+.tech-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0 auto; }
+
+/* ========== DELIVERABLES ========== */
+.deliverables-list {
+  list-style: none;
+  columns: 2;
+  column-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.deliverables-list li {
+  break-inside: avoid;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+  font-size: 0.95rem;
+}
+
+.deliverables-list .check-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ========== FOOTER ========== */
+.proposal-footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(245,240,232,0.06);
+}
+
+.proposal-footer .brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.proposal-footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0 auto;
+}
+
+/* ========== SCROLL ANIMATIONS ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.stagger-children .glass,
+.stagger-children .section-card,
+.stagger-children .swatch,
+.stagger-children .tech-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-children.visible .glass,
+.stagger-children.visible .section-card,
+.stagger-children.visible .swatch,
+.stagger-children.visible .tech-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-children.visible > :nth-child(1) { transition-delay: 0s; }
+.stagger-children.visible > :nth-child(2) { transition-delay: 0.08s; }
+.stagger-children.visible > :nth-child(3) { transition-delay: 0.16s; }
+.stagger-children.visible > :nth-child(4) { transition-delay: 0.24s; }
+.stagger-children.visible > :nth-child(5) { transition-delay: 0.32s; }
+.stagger-children.visible > :nth-child(6) { transition-delay: 0.4s; }
+.stagger-children.visible > :nth-child(7) { transition-delay: 0.48s; }
+.stagger-children.visible > :nth-child(8) { transition-delay: 0.56s; }
+.stagger-children.visible > :nth-child(9) { transition-delay: 0.64s; }
+.stagger-children.visible > :nth-child(10) { transition-delay: 0.72s; }
+.stagger-children.visible > :nth-child(11) { transition-delay: 0.8s; }
+.stagger-children.visible > :nth-child(12) { transition-delay: 0.88s; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  section { padding: 4rem 0; }
+  .summary-grid,
+  .comparison,
+  .voice-grid,
+  .type-preview { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .palette-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-grid { grid-template-columns: 1fr; }
+  .deliverables-list { columns: 1; }
+  .scroll-diagram { flex-direction: column; }
+  .scroll-arrow { transform: rotate(90deg); }
+  .glass { padding: 1.5rem; }
+}
+
+/* ========== PRINT ========== */
+@media print {
+  body {
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  body::before { display: none; }
+
+  section { padding: 2rem 0; page-break-inside: avoid; }
+
+  .cover {
+    min-height: auto;
+    padding: 3rem 2rem;
+    page-break-after: always;
+  }
+
+  .cover::before { display: none; }
+
+  .glass {
+    background: #f8f8f8;
+    backdrop-filter: none;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    padding: 1.5rem;
+  }
+
+  .glass:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  h1, h2, h3, h4, h5 { color: #1a1a2e; }
+  h4, .gold, .label, .module-tag, .tech-tag, .check { color: #C8A84E !important; }
+  .red, .status-badge.critical { color: #C62828 !important; }
+  .blue { color: #2C5F8A !important; }
+
+  .divider { background: #C8A84E; }
+
+  .swatch-color { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+  .reveal, .stagger-children .glass,
+  .stagger-children .section-card,
+  .stagger-children .swatch,
+  .stagger-children .tech-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .phone-display .phone-icon { animation: none; }
+  .status-dot { animation: none; }
+  .cover-inner { animation: none; }
+
+  a { color: #2C5F8A; }
+  a::after { content: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<section class="cover">
+  <div class="cover-inner">
+    <div class="cover-logo">V</div>
+    <span class="label">VioX AI</span>
+    <h1>Cinematic Website<br>Proposal</h1>
+    <p class="tagline">"The Power of Printing"</p>
+    <div class="meta">
+      <strong>Prepared for</strong> Lino Press NY<br>
+      <strong>Prepared by</strong> VioX AI &mdash; Cinematic Sites Division<br>
+      <strong>Date</strong> April 2026<br>
+      <strong>Domain</strong> linopress.nyc
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXECUTIVE SUMMARY ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>01 &mdash; Executive Summary</h4>
+    <h2>A New Digital Home<br>for <span class="gold">Lino Press</span></h2>
+    <div class="divider"></div>
+    <p>Lino Press NY has been a cornerstone of Upper Manhattan printing for over 30 years. Founded by Franklin Nu&ntilde;ez in Washington Heights, the company is NYC's first and largest Latino-owned printing firm &mdash; serving unions, government agencies, nonprofits, and the community in English and Spanish.</p>
+    <p style="margin-top:1rem;">However, the current digital presence does not reflect the caliber of work being delivered. This proposal outlines a premium cinematic website that matches the quality, heritage, and ambition of Lino Press.</p>
+
+    <div class="summary-grid stagger-children">
+      <div class="glass">
+        <span class="status-badge critical"><span class="status-dot"></span> Current State</span>
+        <h3 style="margin-top:1rem;">Digital Gaps</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted);">Both linopressny.com and linopressnyc.com have expired SSL certificates. The current site lacks mobile optimization, modern design, SEO infrastructure, and any form of automated lead capture or voice concierge.</p>
+      </div>
+      <div class="glass">
+        <span class="status-badge success"><span class="status-dot"></span> Proposed</span>
+        <h3 style="margin-top:1rem;">Cinematic Solution</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted);">A premium cinematic website at <strong>linopress.nyc</strong> with scroll-driven video hero, 12+ handcrafted sections, AI-generated editorial imagery, full SEO, a bilingual AI voice concierge, and a dedicated 24/7 phone line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BEFORE & AFTER ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>02 &mdash; Before &amp; After</h4>
+    <h2>The Transformation</h2>
+    <div class="divider"></div>
+
+    <div class="comparison">
+      <div class="comparison-col before glass">
+        <h3><span style="font-size:1.5rem;">&#9711;</span> Before</h3>
+        <ul>
+          <li><span class="icon">&times;</span> Outdated design with dated layout and imagery</li>
+          <li><span class="icon">&times;</span> Expired SSL certificates on both domains</li>
+          <li><span class="icon">&times;</span> No mobile-responsive design</li>
+          <li><span class="icon">&times;</span> No SEO infrastructure or metadata</li>
+          <li><span class="icon">&times;</span> No voice agent or automated lead capture</li>
+          <li><span class="icon">&times;</span> No deployment pipeline or version control</li>
+          <li><span class="icon">&times;</span> Limited service information and no FAQ</li>
+        </ul>
+      </div>
+      <div class="comparison-col after glass">
+        <h3><span style="font-size:1.5rem;">&#9679;</span> After</h3>
+        <ul>
+          <li><span class="icon">&#10003;</span> Cinematic scroll-driven video hero with 150vh canvas engine</li>
+          <li><span class="icon">&#10003;</span> 12+ premium sections with handcrafted effects</li>
+          <li><span class="icon">&#10003;</span> AI-generated editorial imagery throughout</li>
+          <li><span class="icon">&#10003;</span> Full SEO: Open Graph, Schema.org, Twitter Cards</li>
+          <li><span class="icon">&#10003;</span> AI voice concierge with dedicated phone line (24/7)</li>
+          <li><span class="icon">&#10003;</span> GitHub auto-deploy pipeline to Vercel</li>
+          <li><span class="icon">&#10003;</span> Custom domain: linopress.nyc with SSL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROPOSED SECTIONS ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>03 &mdash; Proposed Sections</h4>
+    <h2>12 Cinematic Sections</h2>
+    <div class="divider"></div>
+    <p>Each section is built with a specialized cinematic module &mdash; no templates, no page builders. Every interaction is hand-tuned for Lino Press.</p>
+
+    <div class="section-grid stagger-children">
+
+      <div class="glass section-card" data-number="01">
+        <span class="module-tag">Scroll-Driven Video</span>
+        <h3>Hero</h3>
+        <p>150vh canvas-based frame engine. A cinematic printing press sequence plays as the user scrolls, with headline overlay and dual CTAs.</p>
+      </div>
+
+      <div class="glass section-card" data-number="02">
+        <span class="module-tag">Text Mask Reveal</span>
+        <h3>Text Mask</h3>
+        <p>The word "PRINT" rendered large with scroll-driven clip-path fill &mdash; revealing imagery of ink and paper inside the letterforms.</p>
+      </div>
+
+      <div class="glass section-card" data-number="03">
+        <span class="module-tag">Kinetic Marquee</span>
+        <h3>Marquee</h3>
+        <p>Auto-scrolling horizontal ticker showcasing service offerings: Digital, Offset, Signs, Design, Apparel, Promo, Binding, Web.</p>
+      </div>
+
+      <div class="glass section-card" data-number="04">
+        <span class="module-tag">Split-Scroll Layout</span>
+        <h3>About</h3>
+        <p>Founder story with parallax image on one side and text on the other. Franklin Nu&ntilde;ez, 1994, Washington Heights &mdash; the origin story.</p>
+      </div>
+
+      <div class="glass section-card" data-number="05">
+        <span class="module-tag">Odometer Counters</span>
+        <h3>Stats</h3>
+        <p>Animated counters that spin up on scroll: 30+ years, 50K+ projects, 24/7 rush printing, 2 NYC locations.</p>
+      </div>
+
+      <div class="glass section-card" data-number="06">
+        <span class="module-tag">Accordion Slider</span>
+        <h3>Services</h3>
+        <p>8 expandable service panels with icons and descriptions. Click to expand with smooth height animation and editorial imagery.</p>
+      </div>
+
+      <div class="glass section-card" data-number="07">
+        <span class="module-tag">Sticky-Stack Cards</span>
+        <h3>Why Choose Us</h3>
+        <p>6 cards that stack on scroll: Union Printer, MBE Certified, Bilingual, 24-Hour Rush, One-Stop Shop, Family Owned.</p>
+      </div>
+
+      <div class="glass section-card" data-number="08">
+        <span class="module-tag">Magnetic Grid</span>
+        <h3>Gallery</h3>
+        <p>Project showcase with magnetic hover effects. Images follow cursor movement with subtle parallax tilt.</p>
+      </div>
+
+      <div class="glass section-card" data-number="09">
+        <span class="module-tag">Kinetic Marquee</span>
+        <h3>Testimonials</h3>
+        <p>Auto-scrolling review cards in a continuous horizontal loop. 5-star ratings, client quotes, and attribution.</p>
+      </div>
+
+      <div class="glass section-card" data-number="10">
+        <span class="module-tag">Accordion Slider</span>
+        <h3>FAQ</h3>
+        <p>6 expandable questions covering rush printing, union certification, bilingual services, MBE, signage, and file formats.</p>
+      </div>
+
+      <div class="glass section-card" data-number="11">
+        <span class="module-tag">Mesh Gradient CTA</span>
+        <h3>Contact</h3>
+        <p>Full-bleed animated gradient background with embedded map, contact form, phone number, and dual-location addresses.</p>
+      </div>
+
+      <div class="glass section-card" data-number="12">
+        <span class="module-tag">Full Footer</span>
+        <h3>Footer</h3>
+        <p>Logo, navigation links, business hours, social media icons, and dual-location info. Clean, professional close.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== VISUAL DIRECTION ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>04 &mdash; Visual Direction</h4>
+    <h2>Brand System</h2>
+    <div class="divider"></div>
+
+    <div class="palette-grid stagger-children">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1A2E;"></div>
+        <div class="swatch-name">Press Ink</div>
+        <div class="swatch-hex">#1A1A2E</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C8A84E;"></div>
+        <div class="swatch-name">Heritage Gold</div>
+        <div class="swatch-hex">#C8A84E</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C62828;"></div>
+        <div class="swatch-name">Dominican Red</div>
+        <div class="swatch-hex">#C62828</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2C5F8A;"></div>
+        <div class="swatch-name">Blueprint Blue</div>
+        <div class="swatch-hex">#2C5F8A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5A6675;"></div>
+        <div class="swatch-name">Steel Press</div>
+        <div class="swatch-hex">#5A6675</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4A053;"></div>
+        <div class="swatch-name">Warm Amber</div>
+        <div class="swatch-hex">#D4A053</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0D0D1A;"></div>
+        <div class="swatch-name">Midnight Ink</div>
+        <div class="swatch-hex">#0D0D1A</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F0E8; border-color: rgba(0,0,0,0.1);"></div>
+        <div class="swatch-name">Paper White</div>
+        <div class="swatch-hex">#F5F0E8</div>
+      </div>
+    </div>
+
+    <div class="type-preview">
+      <div class="type-sample">
+        <h3>Display Typeface</h3>
+        <p class="font-name">Playfair Display &mdash; 400, 700, 900</p>
+        <p class="display-text" style="font-family:var(--font-display); font-weight:900;">The Power<br>of Printing</p>
+        <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-muted);">Elegant serif for headlines. Evokes classic print tradition and editorial gravitas.</p>
+      </div>
+      <div class="type-sample">
+        <h3>Body Typeface</h3>
+        <p class="font-name">Inter &mdash; 300, 400, 500, 600</p>
+        <p class="display-text" style="font-family:var(--font-body); font-weight:300; font-size:1.8rem;">Clean, modern, professional.</p>
+        <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-muted);">Contemporary sans-serif for body text. Maximum readability across all devices and sizes.</p>
+      </div>
+    </div>
+
+    <div class="mood-statement glass">
+      <p>"Heritage craft meets modern NYC energy."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== HERO CONCEPT ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>05 &mdash; Hero Animation Concept</h4>
+    <h2>The Opening Scene</h2>
+    <div class="divider"></div>
+
+    <div class="glass concept-box">
+      <div class="inner">
+        <p class="scene-label">Cinematic Direction</p>
+        <h3>A Printing Press in Motion</h3>
+        <blockquote>
+          Ink flows across paper in slow motion. Metal rollers turn with mechanical precision. The camera pulls back through warm, dramatic lighting to reveal the full Lino Press workspace &mdash; machines humming, paper stacking, colors drying under golden light.
+        </blockquote>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:1rem;">The scroll-driven video plays frame-by-frame as the user scrolls through the 150vh hero canvas. Each scroll tick advances the animation, giving the visitor direct control over the cinematic reveal.</p>
+
+        <div class="scroll-diagram" style="margin-top:2rem;">
+          <div class="scroll-step">
+            <span class="step-icon">&#9654;</span>
+            <strong>0%</strong><br>Extreme close-up: ink on roller
+          </div>
+          <span class="scroll-arrow">&rarr;</span>
+          <div class="scroll-step">
+            <span class="step-icon">&#9654;</span>
+            <strong>33%</strong><br>Paper feeding through press
+          </div>
+          <span class="scroll-arrow">&rarr;</span>
+          <div class="scroll-step">
+            <span class="step-icon">&#9654;</span>
+            <strong>66%</strong><br>Pull back: full workspace reveal
+          </div>
+          <span class="scroll-arrow">&rarr;</span>
+          <div class="scroll-step">
+            <span class="step-icon">&#9654;</span>
+            <strong>100%</strong><br>Headline + CTAs fade in
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AI VOICE AGENT ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>06 &mdash; AI Voice Agent</h4>
+    <h2>24/7 Bilingual<br><span class="gold">Voice Concierge</span></h2>
+    <div class="divider"></div>
+
+    <div class="voice-grid">
+      <div class="glass">
+        <h3>Capabilities</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.25rem;">Powered by ElevenLabs AI with a dedicated Twilio phone number. Fully bilingual in English and Spanish.</p>
+        <ul class="capability-list">
+          <li><span class="check">&#10003;</span> Service inquiries &amp; product information</li>
+          <li><span class="check">&#10003;</span> Instant pricing quotes for common jobs</li>
+          <li><span class="check">&#10003;</span> Rush order intake &amp; priority scheduling</li>
+          <li><span class="check">&#10003;</span> Business hours &amp; location directions</li>
+          <li><span class="check">&#10003;</span> Custom apparel questions &amp; sizing help</li>
+          <li><span class="check">&#10003;</span> Union &amp; MBE certification information</li>
+          <li><span class="check">&#10003;</span> File format guidance &amp; design support</li>
+          <li><span class="check">&#10003;</span> Seamless handoff to human team when needed</li>
+        </ul>
+
+        <div class="tech-stack">
+          <span class="tech-tag">ElevenLabs</span>
+          <span class="tech-tag">Twilio</span>
+          <span class="tech-tag">English</span>
+          <span class="tech-tag">Espa&ntilde;ol</span>
+          <span class="tech-tag">24/7</span>
+        </div>
+      </div>
+
+      <div class="glass phone-display">
+        <div class="phone-icon">&#9742;</div>
+        <div class="phone-number">(212) 544-0777</div>
+        <div class="phone-label">Dedicated AI Concierge Line<br>Available 24 hours, 7 days a week</div>
+        <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted);">Callers hear a warm, professional voice that knows every service, every price point, and every answer &mdash; in both English and Spanish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TECHNICAL APPROACH ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>07 &mdash; Technical Approach</h4>
+    <h2>Built for Speed<br>&amp; <span class="gold">Simplicity</span></h2>
+    <div class="divider"></div>
+    <p>No frameworks. No dependencies in production. A single, hand-crafted HTML file with inline CSS and JS that loads instantly and runs everywhere.</p>
+
+    <div class="tech-grid stagger-children">
+      <div class="glass tech-card">
+        <div class="tech-icon gold-bg">&#60;/&#62;</div>
+        <h3>Vanilla Stack</h3>
+        <p>Pure HTML, CSS, and JavaScript. GSAP 3.12.5 for cinematic animations. Zero build tools, zero npm in production.</p>
+      </div>
+      <div class="glass tech-card">
+        <div class="tech-icon blue-bg">&#9650;</div>
+        <h3>Vercel Hosting</h3>
+        <p>Global edge network with automatic SSL. Custom domain linopress.nyc with instant propagation and zero-config HTTPS.</p>
+      </div>
+      <div class="glass tech-card">
+        <div class="tech-icon red-bg">&#128736;</div>
+        <h3>GitHub Auto-Deploy</h3>
+        <p>Every push to the repository triggers an automatic deployment. Version control, rollback capability, and team collaboration built in.</p>
+      </div>
+    </div>
+
+    <div class="glass" style="margin-top:2rem; padding:2rem;">
+      <h3>Architecture at a Glance</h3>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.5rem; text-align:center;">
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">&#128196;</div>
+          <strong style="font-size:0.85rem;">Single HTML</strong>
+          <p style="font-size:0.75rem; color:var(--text-muted);">index.html with inline CSS/JS</p>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">&#127910;</div>
+          <strong style="font-size:0.85rem;">Video Frames</strong>
+          <p style="font-size:0.75rem; color:var(--text-muted);">WebP sequence in /assets/frames</p>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">&#127912;</div>
+          <strong style="font-size:0.85rem;">AI Images</strong>
+          <p style="font-size:0.75rem; color:var(--text-muted);">10-15 editorial images via Gemini</p>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">&#127760;</div>
+          <strong style="font-size:0.85rem;">linopress.nyc</strong>
+          <p style="font-size:0.75rem; color:var(--text-muted);">Custom .nyc domain with SSL</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DELIVERABLES ============================== -->
+<section>
+  <div class="container reveal">
+    <h4>08 &mdash; Deliverables</h4>
+    <h2>What's Included</h2>
+    <div class="divider"></div>
+
+    <ul class="deliverables-list">
+      <li><span class="check-icon">&#10003;</span> Custom cinematic website (single index.html)</li>
+      <li><span class="check-icon">&#10003;</span> Scroll-driven video hero with frame engine</li>
+      <li><span class="check-icon">&#10003;</span> 12 handcrafted sections with cinematic modules</li>
+      <li><span class="check-icon">&#10003;</span> AI-generated cinematic hero video (Kling v3)</li>
+      <li><span class="check-icon">&#10003;</span> 10-15 AI-generated editorial images (Gemini)</li>
+      <li><span class="check-icon">&#10003;</span> Complete brand system (colors, typography, logo SVG)</li>
+      <li><span class="check-icon">&#10003;</span> Full SEO: Open Graph, Twitter Cards, Schema.org</li>
+      <li><span class="check-icon">&#10003;</span> Favicon and social sharing image</li>
+      <li><span class="check-icon">&#10003;</span> GSAP 3.12.5 cinematic animations throughout</li>
+      <li><span class="check-icon">&#10003;</span> Mobile-responsive design (all breakpoints)</li>
+      <li><span class="check-icon">&#10003;</span> AI voice agent (ElevenLabs + Twilio)</li>
+      <li><span class="check-icon">&#10003;</span> Dedicated phone number with 24/7 concierge</li>
+      <li><span class="check-icon">&#10003;</span> Bilingual English/Spanish voice support</li>
+      <li><span class="check-icon">&#10003;</span> GitHub repository with version control</li>
+      <li><span class="check-icon">&#10003;</span> Vercel hosting with auto-deploy pipeline</li>
+      <li><span class="check-icon">&#10003;</span> Custom domain setup: linopress.nyc</li>
+      <li><span class="check-icon">&#10003;</span> SSL certificate (automatic via Vercel)</li>
+      <li><span class="check-icon">&#10003;</span> Contact form with email delivery</li>
+      <li><span class="check-icon">&#10003;</span> Google Maps embed (both locations)</li>
+      <li><span class="check-icon">&#10003;</span> Performance optimization (sub-2s load)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="proposal-footer">
+  <div class="brand">VioX AI</div>
+  <p>Cinematic Sites Division &bull; April 2026</p>
+  <p style="margin-top:1rem;">Prepared exclusively for <strong>Lino Press NY</strong> &mdash; Franklin Nu&ntilde;ez</p>
+  <p style="margin-top:2rem; font-size:0.75rem; opacity:0.4;">This proposal is confidential and intended solely for the named recipient.</p>
+</footer>
+
+<!-- ============================== SCROLL REVEAL JS ============================== -->
+<script>
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .stagger-children').forEach(el => {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

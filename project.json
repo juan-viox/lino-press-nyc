@@ -1,0 +1,262 @@
+{
+  "client": {
+    "name": "Lino Press NY",
+    "slug": "lino-press-nyc",
+    "sourceUrl": "https://linopressny.com",
+    "targetDomain": "linopress.nyc",
+    "instagramUrl": "https://www.instagram.com/linopress/",
+    "businessType": "service",
+    "founder": "Franklin Nuñez",
+    "team": [
+      { "name": "Franklin Nuñez", "role": "Owner & Founder" },
+      { "name": "Hector Nuñez", "role": "Creative Director & Partner" },
+      { "name": "Pamela", "role": "Senior Graphic Designer" },
+      { "name": "Eda Nunez", "role": "Customer Service" }
+    ],
+    "instagram": {
+      "handle": "@linopress",
+      "followers": 3405,
+      "posts": 600
+    },
+    "location": {
+      "address": "4482 Broadway",
+      "city": "New York",
+      "neighborhood": "Washington Heights",
+      "state": "NY",
+      "zip": "10040",
+      "coordinates": { "lat": 40.8575, "lng": -73.9319 }
+    },
+    "secondaryLocation": {
+      "address": "630 Gerard Ave",
+      "city": "Bronx",
+      "state": "NY"
+    },
+    "phone": "(212) 544-0777",
+    "email": "info@linopress.nyc",
+    "tagline": "The Power of Printing",
+    "founded": 1994,
+    "certifications": ["Union Printer", "MBE Certified"],
+    "hours": {
+      "monday": "9:00 AM - 8:00 PM",
+      "tuesday": "9:00 AM - 8:00 PM",
+      "wednesday": "9:00 AM - 8:00 PM",
+      "thursday": "9:00 AM - 8:00 PM",
+      "friday": "9:00 AM - 10:00 PM",
+      "saturday": "10:30 AM - 5:00 PM",
+      "sunday": "Closed"
+    },
+    "rating": 4.1,
+    "reviewCount": 40
+  },
+  "brand": {
+    "colors": {
+      "primary": { "name": "Press Ink", "hex": "#1A1A2E" },
+      "secondary": { "name": "Heritage Gold", "hex": "#C8A84E" },
+      "accent1": { "name": "Dominican Red", "hex": "#C62828" },
+      "accent2": { "name": "Blueprint Blue", "hex": "#2C5F8A" },
+      "accent3": { "name": "Steel Press", "hex": "#5A6675" },
+      "accent4": { "name": "Warm Amber", "hex": "#D4A053" },
+      "dark": { "name": "Midnight Ink", "hex": "#0D0D1A" },
+      "light": { "name": "Paper White", "hex": "#F5F0E8" }
+    },
+    "typography": {
+      "display": { "family": "Playfair Display", "weights": [400, 700, 900], "style": "Elegant serif for headlines — evokes classic print tradition" },
+      "body": { "family": "Inter", "weights": [300, 400, 500, 600], "style": "Clean modern sans for readability and professionalism" }
+    },
+    "logoDescription": "Circular logo mark: dark charcoal circle with lowercase 'lp' in white modern sans-serif (the 'l' is a tall thin vertical line, the 'p' is standard lowercase), CMYK color bars (cyan, magenta, yellow, black) to the left of 'NYC' text below, 'NYC' in white uppercase with horizontal rules above and below. Wordmark version: 'linopressNY' in clean sans-serif with tagline 'The power of printing' below."
+  },
+  "heroConcepts": [
+    {
+      "id": 1,
+      "title": "The Press Room",
+      "description": "A cinematic, slow-motion journey through the Lino Press workshop. We open on an extreme close-up of ink rollers turning — deep CMYK pigments glistening under warm workshop lighting. The camera pulls back to reveal paper feeding through the press, then pans to skilled hands inspecting a freshly printed sheet. Warm amber tones, shallow depth of field, the hum of machinery implied through movement. This is the soul of Lino Press — three decades of craft in motion.",
+      "brandConnection": "Celebrates the core identity of Lino Press as a craft-first printing company. Shows the process no competitor reveals. Positions them as artisans, not just vendors.",
+      "geminiPrompt": "Cinematic photograph of a professional printing press workshop interior. Extreme close-up of offset printing press ink rollers with deep cyan, magenta, yellow and black ink glistening under warm amber workshop lighting. Paper sheets feeding through the press mechanism. Shallow depth of field, dramatic side lighting creating long shadows. Rich warm color grading with amber and golden tones. Industrial machinery with polished metal surfaces reflecting warm light. 16:9 aspect ratio, 8K quality, photorealistic, moody atmospheric print shop interior, no people visible",
+      "wavespeedPrompt": "Slow cinematic camera pull-back from extreme close-up of spinning ink rollers to reveal the full printing press in operation. Paper feeds through the press smoothly. Gentle ambient dust particles float in warm light beams. Camera movement is steady and deliberate, pulling back and slightly panning right. Subtle mechanical movement of press components. 5 seconds."
+    },
+    {
+      "id": 2,
+      "title": "Nuestro Barrio — Our Neighborhood",
+      "description": "A cinematic aerial establishing shot of Washington Heights at golden hour — the George Washington Bridge in the distance, brownstone rooftops glowing amber, the energy of Upper Manhattan alive below. The camera slowly descends toward 4482 Broadway, the Lino Press storefront coming into focus, warm light spilling from the windows onto the sidewalk. This concept roots the business in its community — inseparable from the neighborhood it has served for 30 years.",
+      "brandConnection": "Positions Lino Press as a neighborhood institution, not just a print shop. Emphasizes the Washington Heights identity, Dominican heritage, and community roots that no competitor can claim.",
+      "geminiPrompt": "Cinematic aerial photograph of Washington Heights Upper Manhattan New York City at golden hour sunset. View from above showing brownstone apartment buildings with warm amber sunlight, busy Broadway avenue below with small storefronts, the George Washington Bridge visible in the background spanning the Hudson River. Warm golden light casting long shadows across rooftops. Dense urban neighborhood with character and life. 16:9 aspect ratio, 8K quality, photorealistic, cinematic color grading with rich golden tones and deep blue sky",
+      "wavespeedPrompt": "Slow cinematic camera descent from aerial view of Manhattan neighborhood at golden hour. Camera gradually moves downward toward street level, buildings growing larger in frame. Warm sunset light shifts and glows across brownstone facades. Subtle movement of light and shadow as camera descends. Smooth, steady, dreamlike downward movement. 5 seconds."
+    },
+    {
+      "id": 3,
+      "title": "Ink & Paper — The Art of Print",
+      "description": "An extreme macro, almost abstract view of the printing process as art. We open on a drop of ink hitting paper in ultra-slow motion — spreading across the fibers like watercolor, revealing CMYK layers building a full-color image. The textures of premium paper stock fill the frame, letterpress debossing creates dramatic shadows, foil stamping catches the light. This is print elevated to fine art — a sensory experience that makes you want to touch the screen.",
+      "brandConnection": "Transforms printing from a commodity service into a craft experience. Shows the beauty and precision that 30+ years of expertise delivers. Makes the digital viewer crave the physical — the ultimate print company hero.",
+      "geminiPrompt": "Extreme macro photograph of printing ink spreading across textured premium paper stock. Deep rich CMYK colors — cyan, magenta, yellow and black ink droplets on white cotton paper fibers. Dramatic studio lighting from the side creating deep shadows and highlights on the paper texture. Letterpress debossing impression visible with sharp shadow edges. Ultra-close detail showing individual paper fibers and ink pigment particles. 16:9 aspect ratio, 8K quality, photorealistic, studio macro photography, shallow depth of field, dark moody background",
+      "wavespeedPrompt": "Slow mesmerizing spread of ink across textured paper surface in extreme macro view. Ink flows and absorbs into paper fibers organically. Subtle camera drift to the right reveals more paper texture and ink detail. Light shifts slightly creating moving highlights on wet ink surface. Dreamlike, meditative pace. 5 seconds."
+    }
+  ],
+  "content": {
+    "hero": {
+      "headline": "The Power of Printing",
+      "subheadline": "NYC's First & Largest Latino Printing Company — Serving New York Since 1994",
+      "cta1": { "text": "Get a Free Quote", "href": "#contact" },
+      "cta2": { "text": "Our Services", "href": "#services" }
+    },
+    "about": {
+      "headline": "Three Decades of Printing Excellence",
+      "paragraphs": [
+        "Since 1994, Lino Press has been the beating heart of print in Upper Manhattan. Founded by Franklin Nuñez in Washington Heights, what started as a small community print shop has grown into New York City's first and largest Latino-owned printing company.",
+        "Today, our team — led by Franklin, his son Hector, and our talented designers — delivers everything from business cards to building-sized banners. We combine state-of-the-art digital and offset presses with old-school craftsmanship and the personal touch that only a family business can offer.",
+        "As a Union Printer and MBE-Certified firm, we're proud to serve government agencies, labor unions, nonprofit organizations, small businesses, and the vibrant communities of New York City — in English and Spanish."
+      ]
+    },
+    "services": [
+      {
+        "name": "Digital Printing",
+        "description": "High-speed, full-color digital printing for short runs, variable data, and same-day turnaround. Business cards, flyers, brochures, and more.",
+        "icon": "printer"
+      },
+      {
+        "name": "Offset Printing",
+        "description": "Premium single and multi-color offset printing for catalogs, annual reports, newsletters, and high-volume commercial projects.",
+        "icon": "layers"
+      },
+      {
+        "name": "Large Format & Signs",
+        "description": "Banners, posters, storefront signs, trade show displays, vehicle wraps, and wall graphics. From design to installation.",
+        "icon": "maximize"
+      },
+      {
+        "name": "Graphic Design",
+        "description": "Full-service creative studio. Logo design, brand identity, marketing materials, bilingual layouts, and print-ready artwork.",
+        "icon": "pen-tool"
+      },
+      {
+        "name": "Custom Apparel",
+        "description": "T-shirts, hoodies, hats, and uniforms. Screen printing, DTG, heat transfers, and embroidery for teams, events, and brands.",
+        "icon": "shirt"
+      },
+      {
+        "name": "Promotional Products",
+        "description": "Branded merchandise, giveaways, and promotional items. Mugs, pens, tote bags, lanyards — everything your brand needs.",
+        "icon": "gift"
+      },
+      {
+        "name": "Bookbinding & Publishing",
+        "description": "Perfect binding, saddle stitching, spiral binding, and hardcover production for books, manuals, catalogs, and journals.",
+        "icon": "book"
+      },
+      {
+        "name": "Web Design & Social Media",
+        "description": "Custom websites, social media management, graphic design, and video production to complete your brand presence online.",
+        "icon": "globe"
+      }
+    ],
+    "stats": [
+      { "number": 30, "suffix": "+", "label": "Years in Business" },
+      { "number": 50000, "suffix": "+", "label": "Projects Delivered" },
+      { "number": 24, "suffix": "/7", "label": "Rush Printing Available" },
+      { "number": 2, "label": "NYC Locations" }
+    ],
+    "whyChooseUs": [
+      {
+        "title": "Union Printer",
+        "description": "Certified union shop — required for government contracts, political campaigns, and labor organizations."
+      },
+      {
+        "title": "MBE Certified",
+        "description": "Minority Business Enterprise certification opens doors to city, state, and federal procurement opportunities."
+      },
+      {
+        "title": "Bilingual Service",
+        "description": "Full English and Spanish service for design, consultation, and project management. We speak your language."
+      },
+      {
+        "title": "24-Hour Rush",
+        "description": "Need it yesterday? Our 24-hour rush service means your project is done when you need it."
+      },
+      {
+        "title": "One-Stop Shop",
+        "description": "From business cards to building signs, apparel to annual reports — all under one roof."
+      },
+      {
+        "title": "Family Owned",
+        "description": "Two generations of Nuñez family dedication. We treat every client like family."
+      }
+    ],
+    "testimonials": [
+      {
+        "text": "They exceed your expectations — professional, courteous, and most of all very patient with my needs. Pamela and Hector are simply the best graphic designers.",
+        "author": "La Morena Del Mambo",
+        "role": "Client Since 2011",
+        "rating": 5
+      },
+      {
+        "text": "Franklin and his team have been our go-to printer for over a decade. Fast turnaround, great prices, and they always get it right.",
+        "author": "Washington Heights Business Owner",
+        "role": "Repeat Client",
+        "rating": 5
+      },
+      {
+        "text": "The only printer in New York that understands bilingual design. They don't just translate — they design for both audiences.",
+        "author": "Community Organization Leader",
+        "role": "Nonprofit Client",
+        "rating": 5
+      }
+    ],
+    "faq": [
+      {
+        "question": "Do you offer same-day or rush printing?",
+        "answer": "Yes! We offer 24-hour rush printing for most products. Contact us for availability and rush pricing."
+      },
+      {
+        "question": "Are you a union printer?",
+        "answer": "Absolutely. Lino Press is a certified union shop. All our work carries the union bug, making us the right choice for labor organizations, political campaigns, and government contracts."
+      },
+      {
+        "question": "Do you provide bilingual design services?",
+        "answer": "Yes. Our design team creates materials in English, Spanish, or both. We understand the nuances of bilingual layouts and culturally-informed design."
+      },
+      {
+        "question": "What is MBE certification?",
+        "answer": "MBE stands for Minority Business Enterprise. Our certification qualifies us for city, state, and federal procurement contracts with minority business requirements."
+      },
+      {
+        "question": "Do you handle large-format and signage installation?",
+        "answer": "Yes. From design through production to installation, we handle banners, storefront signs, vehicle wraps, trade show displays, and more."
+      },
+      {
+        "question": "What file formats do you accept?",
+        "answer": "We accept PDF, AI, PSD, INDD, EPS, JPG, PNG, and TIFF. Our design team can also work from rough concepts or Word documents."
+      }
+    ]
+  },
+  "sections": [
+    "hero-scroll-video",
+    "text-mask-reveal",
+    "marquee",
+    "about",
+    "stats",
+    "services-list",
+    "why-choose-us",
+    "gallery",
+    "testimonials",
+    "faq",
+    "contact",
+    "footer"
+  ],
+  "hero": {
+    "selectedConcept": 3,
+    "conceptName": "Ink & Paper — The Art of Print (with Press Room elements)",
+    "imageFile": "hero-variant-2.png",
+    "videoFile": "hero-video.mp4",
+    "frameCount": 121
+  },
+  "deployment": {
+    "vercelUrl": null,
+    "customDomain": "linopress.nyc",
+    "githubRepo": null
+  },
+  "voiceAgent": {
+    "agentId": null,
+    "phoneNumber": null
+  },
+  "phase": 0,
+  "status": "competitive-analysis"
+}
