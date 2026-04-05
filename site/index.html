@@ -1862,7 +1862,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     </div>
     <div class="voice-agent-wrapper">
       <p>Have a question? Talk to our AI assistant:</p>
-      <elevenlabs-convai agent-id="PLACEHOLDER"></elevenlabs-convai>
+      <elevenlabs-convai agent-id="agent_6501kndq02pve5n9sg6pqjrqtfzc"></elevenlabs-convai>
+      <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter-section" style="margin-top:60px; text-align:center; padding:48px 24px; background:rgba(200,168,78,0.08); border-radius:16px; border:1px solid rgba(200,168,78,0.2);">
+      <h3 style="font-family:var(--font-display); font-size:28px; margin-bottom:8px;" data-i18n="newsletter_title">Stay in the Loop</h3>
+      <p style="color:var(--muted); margin-bottom:24px; max-width:500px; margin-left:auto; margin-right:auto;" data-i18n="newsletter_desc">Get updates on special offers, new services, and community events from Lino Press.</p>
+      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you! / Gracias!'; this.querySelector('input').disabled=true; this.querySelector('button').disabled=true;" style="display:flex; gap:12px; max-width:500px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+        <input type="email" placeholder="your@email.com" required style="flex:1; min-width:250px; padding:14px 20px; border-radius:8px; border:1px solid var(--border); background:rgba(255,255,255,0.05); color:var(--text); font-family:var(--font-body); font-size:15px; outline:none; transition:border-color 0.3s;" onfocus="this.style.borderColor='var(--secondary)'" onblur="this.style.borderColor='var(--border)'">
+        <button type="submit" style="padding:14px 32px; border-radius:8px; background:var(--secondary); color:var(--dark); font-family:var(--font-body); font-weight:600; font-size:15px; cursor:pointer; transition:transform 0.2s, opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'" data-i18n="newsletter_btn">Subscribe</button>
+      </form>
     </div>
   </div>
 </section>
@@ -2046,7 +2057,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         hours_sat: 'Saturday',
         hours_sun: 'Sunday',
         hours_closed: 'Closed',
-        footer_certs: 'Union Printer \u2022 MBE Certified \u2022 Est. 1994'
+        footer_certs: 'Union Printer \u2022 MBE Certified \u2022 Est. 1994',
+        newsletter_title: 'Stay in the Loop',
+        newsletter_desc: 'Get updates on special offers, new services, and community events from Lino Press.',
+        newsletter_btn: 'Subscribe'
       },
       es: {
         nav_about: 'Nosotros',
@@ -2136,7 +2150,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
         hours_sat: 'S\u00e1bado',
         hours_sun: 'Domingo',
         hours_closed: 'Cerrado',
-        footer_certs: 'Imprenta Sindical \u2022 Certificaci\u00f3n MBE \u2022 Est. 1994'
+        footer_certs: 'Imprenta Sindical \u2022 Certificaci\u00f3n MBE \u2022 Est. 1994',
+        newsletter_title: 'Mantente Informado',
+        newsletter_desc: 'Recibe actualizaciones sobre ofertas especiales, nuevos servicios y eventos comunitarios de Lino Press.',
+        newsletter_btn: 'Suscribirse'
       }
     };
 
